@@ -8,9 +8,10 @@ app = Flask(__name__)
 posts = requests.get('https://api.npoint.io/c790b4d5cab58020d391').json()
 
 
-@app.route('/full_read')
-def full_read(id=0):
-    return render_template("post.html", id=id, posts=posts)
+@app.route('/full_read/<idu>')
+def full_read(idu):
+    
+    return render_template("post.html", id=int(idu), posts=posts)
 
 
 @app.route('/')
